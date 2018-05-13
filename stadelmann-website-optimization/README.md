@@ -10,17 +10,16 @@
 
 **or**
 
-* open https://martinstad.github.io/udacity/stadelmann-website-optimization/index.html in your browser
+* open https://martinstad.github.io/portfolio/stadelmann-website-optimization/index.html in your browser
 
 ## How the code was altered in order to improve site speed
 
-**index.html**
+**Changes in _index.html_**
 
 ### _Images_
 
 * All images were replaced with compressed images through the website _compressor.io_
 * In the file _index.html_ the style attribute was added to the img code to determine width and height
-* Add alt attributes to images
 
 ### _Rendering_
 
@@ -28,8 +27,9 @@
 * It was made sure that these files are loading asynchronously, which had an especially big impact on the sitespeed of the mobile site
 * For that `media="none"` and/or  `onload="if(media!='all')media='all'"` was added
 
-**main.js**
+**Changes in _main.js_**
 
 ### _Frames per Second_
-* Get rid of for loop and background noise entirely
+* Get rid of for loop and background noise entirely by removing code concerning the "updatePositions" function
 * Make sure there is no forced synchronous layout when changing pizza sizes by adjusting _function ChangePizzaSizes_
+* Change number of loading pizzas from 200 to 20 in "addEventListener"
