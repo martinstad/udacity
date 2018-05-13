@@ -2,7 +2,7 @@
 
 ## How to run the sites
 
-* Download the enitre file _stadelmann-website-optimization.
+* Download the enitre file _stadelmann-website-optimization_.
 * Open the file _index.html_ in your browser.
 * Open the file _views/pizza.html_ in your browser.
 * Voila, you're ready to browse through the website: You can have a look at the portfolio of Cameron Pittman.
