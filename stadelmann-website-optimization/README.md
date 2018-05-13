@@ -10,7 +10,7 @@
 
 **or**
 
-* open https://martinstad.github.io/portfolio/stadelmann-website-optimization/index.html in your browser
+* open https://martinstad.github.io/udacity/stadelmann-website-optimization/index.html in your browser
 
 ## How the code was altered in order to improve site speed
 
