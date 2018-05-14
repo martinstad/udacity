@@ -30,6 +30,6 @@
 **Changes in _main.js_**
 
 ### _Frames per Second_
-* Get rid of for loop and background noise entirely by removing code concerning the "updatePositions" function
+* Optimize "updatePositions" function: move scrollTop outside of for loop and replace querySelectorAll with getElementsByClass
 * Make sure there is no forced synchronous layout when changing pizza sizes by adjusting _function ChangePizzaSizes_
-* Change number of loading pizzas from 200 to 20 in "addEventListener"
+* Change number of loading pizzas from 200 to 23 in "addEventListener" to prevent loading background pizzas that are only visible for the user when scrolling down anyway.
