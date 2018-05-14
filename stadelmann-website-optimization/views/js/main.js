@@ -530,25 +530,18 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 
 // Moves the sliding background pizzas based on scroll position
 
-// --> get rid of for loop and background noise entirely
-/*
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
+  // OPTIMIZED: move scrollTop outside of for loop and calculate values of pizzas in background here.
+  var backgroundPizzas = document.body.scrollTop / 1250;
+  // OPTIMIZED: replace querySelectorAll with getElementsByClass
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
-    // document.body.scrollTop is no longer supported in Chrome.
-    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    var phase = Math.sin((scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }
-  var items = document.getElementsByClassName('mover');
-  for (var i = 0; i < items.length; i++) {
-    // document.body.scrollTop is no longer supported in Chrome.
-    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    var phase = Math.sin((scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    if (i === 20) { break; };
+  	// document.body.scrollTop is no longer supported in Chrome.
+    //var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var phase = Math.sin(backgroundPizzas + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase +"px";
   }
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -561,13 +554,13 @@ function updatePositions() {
 }
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
-*/
+
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
     var cols = 8;
     var s = 256;
-    //OPTIMIZED: change number of pizzas loaded (since just a few pizzas are visible anyway, from 200 to 20)
-    for (var i = 0; i < 20; i++) {
+    //OPTIMIZED: change number of pizzas loaded (since just a few pizzas are visible anyway, from 200 to 23)
+    for (var i = 0; i < 23; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
@@ -577,5 +570,5 @@ document.addEventListener('DOMContentLoaded', function() {
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
         document.querySelector("#movingPizzas1").appendChild(elem);
     }
-    //updatePositions();
+    updatePositions();
 });
